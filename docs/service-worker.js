@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bme-monitor-v2';
+const CACHE_NAME = 'bme-monitor-v3';
 const ASSETS = [
   'index.html',
   'add.html',
@@ -22,6 +22,19 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
+  const requestUrl = new URL(event.request.url);
+  if (requestUrl.pathname.endsWith('/status.json') || requestUrl.pathname.endsWith('/history.csv')) {
+    event.respondWith(
+      fetch(event.request)
+        .then((response) => {
+          const clone = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+          return response;
+        })
+        .catch(() => caches.match(event.request))
+    );
+    return;
+  }
   event.respondWith(
     caches.match(event.request).then((cached) => {
       return cached || fetch(event.request).then((response) => {

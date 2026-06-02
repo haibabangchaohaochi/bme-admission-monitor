@@ -209,8 +209,22 @@ function renderHistory(statusData) {
 }
 
 async function loadDashboard() {
-  const response = await fetch('status.json', { cache: 'no-store' });
-  const statusData = await response.json();
+  let statusData = { generated_at: '', school_count: 0, schools: [], recent_history: [] };
+  try {
+    const response = await fetch('status.json', { cache: 'no-store' });
+    const contentType = response.headers.get('content-type') || '';
+    if (!response.ok || !contentType.includes('application/json')) {
+      throw new Error(`status.json 加载失败：${response.status} ${response.statusText}`);
+    }
+    statusData = await response.json();
+  } catch (error) {
+    console.warn('status.json unavailable, using fallback payload', error);
+    const banner = document.createElement('div');
+    banner.className = 'panel';
+    banner.style.marginBottom = '16px';
+    banner.innerHTML = '<strong>提示：</strong>当前状态文件尚未生成，页面已切换为空数据模式。运行 `python scripts/merge_schools.py` 和 `python scripts/build_dashboard.py` 后可恢复完整数据。';
+    document.querySelector('.page-shell').insertBefore(banner, document.querySelector('.stats-grid'));
+  }
   const tempSchools = getTempSchools().map((item) => ({ ...item, temporary_local: true, manual_override: true, priority: item.priority || 'medium', summer_camp_status: item.summer_camp_status || '未发布', pre_recommend_status: item.pre_recommend_status || '未发布' }));
   allSchools = [...normalizeArray(statusData.schools), ...tempSchools];
   renderHistory(statusData);
