@@ -4,6 +4,7 @@ const TEMP_KEY = 'bme_monitor_temp_schools';
 let allSchools = [];
 let filteredSchools = [];
 let priorityOnly = false;
+let lastQueryAt = '';
 
 function getTempSchools() {
   try {
@@ -39,6 +40,12 @@ function renderStats(schools) {
 
   const grid = document.getElementById('statsGrid');
   grid.innerHTML = items.map(([label, value]) => `<article class="stat-card"><div class="stat-label">${label}</div><div class="stat-value">${value}</div></article>`).join('');
+}
+
+function showQueryStatus(message) {
+  const summary = document.getElementById('summaryText');
+  if (!summary) return;
+  summary.textContent = message;
 }
 
 function isWithin72Hours(dateText) {
@@ -229,17 +236,51 @@ async function loadDashboard() {
   allSchools = [...normalizeArray(statusData.schools), ...tempSchools];
   renderHistory(statusData);
   refreshList();
+  lastQueryAt = statusData.generated_at || new Date().toISOString();
+  showQueryStatus(`当前显示 ${allSchools.length} 条，最近查询时间：${lastQueryAt || '未知'}`);
+  return statusData;
+}
+
+async function queryAllSchools() {
+  const queryBtn = document.getElementById('queryBtn');
+  if (queryBtn) {
+    queryBtn.disabled = true;
+    queryBtn.textContent = '查询中...';
+  }
+  try {
+    const statusData = await loadDashboard();
+    const total = normalizeArray(statusData.schools).length;
+    showQueryStatus(`一键查询完成：已加载 ${total} 所学校，最近查询时间：${statusData.generated_at || new Date().toISOString()}`);
+  } catch (error) {
+    showQueryStatus(`一键查询失败：${error.message}`);
+  } finally {
+    if (queryBtn) {
+      queryBtn.disabled = false;
+      queryBtn.textContent = '一键查询';
+    }
+  }
 }
 
 function bindEvents() {
   const controls = ['searchInput', 'levelFilter', 'summerFilter', 'preFilter', 'cityFilter', 'directionFilter', 'sortFilter'];
-  controls.forEach((id) => document.getElementById(id).addEventListener('input', refreshList));
-  controls.forEach((id) => document.getElementById(id).addEventListener('change', refreshList));
-  document.getElementById('exportBtn').addEventListener('click', exportData);
-  document.getElementById('historyBtn').addEventListener('click', () => document.getElementById('historyDialog').showModal());
-  document.getElementById('priorityBtn').addEventListener('click', () => {
+  controls.forEach((id) => {
+    const element = document.getElementById(id);
+    if (!element) return;
+    element.addEventListener('input', refreshList);
+    element.addEventListener('change', refreshList);
+  });
+  const queryBtn = document.getElementById('queryBtn');
+  if (queryBtn) {
+    queryBtn.addEventListener('click', queryAllSchools);
+  }
+  const exportBtn = document.getElementById('exportBtn');
+  if (exportBtn) exportBtn.addEventListener('click', exportData);
+  const historyBtn = document.getElementById('historyBtn');
+  if (historyBtn) historyBtn.addEventListener('click', () => document.getElementById('historyDialog')?.showModal());
+  const priorityBtn = document.getElementById('priorityBtn');
+  if (priorityBtn) priorityBtn.addEventListener('click', () => {
     priorityOnly = !priorityOnly;
-    document.getElementById('priorityBtn').textContent = priorityOnly ? '显示全部' : '仅看高优先级';
+    priorityBtn.textContent = priorityOnly ? '显示全部' : '仅看高优先级';
     refreshList();
   });
 }
