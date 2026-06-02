@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b1f3a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>2026 生物医学工程方向夏令营与预推免监控看板</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="assets/style.css">
+  <script defer src="assets/app.js"></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">BME Admission Monitor</p>
+        <h1>2026 生物医学工程方向夏令营与预推免监控看板</h1>
+        <p class="subtitle">面向保研与预推免的长期监控网页，支持手机快速打开、PWA 添加到主屏幕、每日自动更新。</p>
+      </div>
+      <div class="hero-actions">
+        <a class="action-btn primary" href="add.html">新增学校</a>
+        <button class="action-btn" id="exportBtn" type="button">导出数据</button>
+        <button class="action-btn" id="historyBtn" type="button">查看历史</button>
+        <button class="action-btn" id="priorityBtn" type="button">仅看高优先级</button>
+      </div>
+    </header>
+
+    <section class="stats-grid" id="statsGrid"></section>
+
+    <section class="panel filter-panel">
+      <div class="filter-row">
+        <label>关键词搜索<input id="searchInput" type="search" placeholder="搜索学校、学院、通知标题、方向"></label>
+        <label>层次<select id="levelFilter"><option value="all">全部</option><option value="985">985</option><option value="211">211</option><option value="双非">双非</option><option value="科研院所">科研院所</option></select></label>
+        <label>夏令营状态<select id="summerFilter"><option value="all">全部</option><option value="未发布">未发布</option><option value="疑似发布">疑似发布</option><option value="已发布">已发布</option><option value="报名中">报名中</option><option value="已截止">已截止</option><option value="需人工核验">需人工核验</option></select></label>
+        <label>预推免状态<select id="preFilter"><option value="all">全部</option><option value="未发布">未发布</option><option value="疑似发布">疑似发布</option><option value="已发布">已发布</option><option value="报名中">报名中</option><option value="已截止">已截止</option><option value="需人工核验">需人工核验</option></select></label>
+        <label>地区<input id="cityFilter" type="text" placeholder="如 北京 / 上海 / 广州"></label>
+        <label>方向<input id="directionFilter" type="text" placeholder="如 医学影像 / 脑机接口"></label>
+        <label>排序<select id="sortFilter"><option value="priority">优先级</option><option value="deadline">报名截止时间</option><option value="expected">预计发布时间</option><option value="checked">最近更新时间</option></select></label>
+      </div>
+    </section>
+
+    <section class="panel table-panel">
+      <div class="panel-head">
+        <h2>监控列表</h2>
+        <p id="summaryText"></p>
+      </div>
+      <div id="listContainer" class="list-container"></div>
+    </section>
+
+    <footer class="footer-note">数据仅作辅助，最终以学校/学院官网通知为准。</footer>
+  </div>
+
+  <dialog id="historyDialog" class="history-dialog">
+    <form method="dialog" class="dialog-box">
+      <div class="dialog-head">
+        <h3>历史变更记录</h3>
+        <button class="action-btn" value="cancel">关闭</button>
+      </div>
+      <div id="historyList" class="history-list"></div>
+    </form>
+  </dialog>
+</body>
+</html>

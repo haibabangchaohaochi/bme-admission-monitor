@@ -1,0 +1,176 @@
+aliases:
+  sjtu:
+    canonical_name: 上海交通大学
+    english_name: Shanghai Jiao Tong University
+    aliases: [上海交大, 上交, SJTU]
+    title_patterns: [上海交通大学, 上海交大, SJTU]
+  buaa:
+    canonical_name: 北京航空航天大学
+    english_name: Beihang University
+    aliases: [北航, BUAA, Beihang]
+    title_patterns: [北京航空航天大学, 北航, BUAA]
+  tju:
+    canonical_name: 天津大学
+    english_name: Tianjin University
+    aliases: [天大, TJU]
+    title_patterns: [天津大学, 天大, TJU]
+  hust:
+    canonical_name: 华中科技大学
+    english_name: Huazhong University of Science and Technology
+    aliases: [华科, HUST, 华中大]
+    title_patterns: [华中科技大学, 华科, HUST]
+  zju:
+    canonical_name: 浙江大学
+    english_name: Zhejiang University
+    aliases: [浙大, ZJU]
+    title_patterns: [浙江大学, 浙大, ZJU]
+  bit:
+    canonical_name: 北京理工大学
+    english_name: Beijing Institute of Technology
+    aliases: [北理, BIT]
+    title_patterns: [北京理工大学, 北理, BIT]
+  dut:
+    canonical_name: 大连理工大学
+    english_name: Dalian University of Technology
+    aliases: [大工, DUT]
+    title_patterns: [大连理工大学, 大工, DUT]
+  hnu:
+    canonical_name: 湖南大学
+    english_name: Hunan University
+    aliases: [湖大, HNU]
+    title_patterns: [湖南大学, 湖大, HNU]
+  nju:
+    canonical_name: 南京大学
+    english_name: Nanjing University
+    aliases: [南大, NJU]
+    title_patterns: [南京大学, 南大, NJU]
+  seu:
+    canonical_name: 东南大学
+    english_name: Southeast University
+    aliases: [东大, SEU]
+    title_patterns: [东南大学, 东大, SEU]
+  xjtu:
+    canonical_name: 西安交通大学
+    english_name: Xi'an Jiaotong University
+    aliases: [西交, XJTU]
+    title_patterns: [西安交通大学, 西交, XJTU]
+  sysu:
+    canonical_name: 中山大学
+    english_name: Sun Yat-sen University
+    aliases: [中大, SYSU]
+    title_patterns: [中山大学, 中大, SYSU]
+  csu:
+    canonical_name: 中南大学
+    english_name: Central South University
+    aliases: [中南, CSU]
+    title_patterns: [中南大学, 中南, CSU]
+  scut:
+    canonical_name: 华南理工大学
+    english_name: South China University of Technology
+    aliases: [华南理工, SCUT]
+    title_patterns: [华南理工大学, 华南理工, SCUT]
+  scu:
+    canonical_name: 四川大学
+    english_name: Sichuan University
+    aliases: [川大, SCU]
+    title_patterns: [四川大学, 川大, SCU]
+  cqu:
+    canonical_name: 重庆大学
+    english_name: Chongqing University
+    aliases: [重大, CQU]
+    title_patterns: [重庆大学, 重大, CQU]
+  uestc:
+    canonical_name: 电子科技大学
+    english_name: University of Electronic Science and Technology of China
+    aliases: [电子科大, UESTC]
+    title_patterns: [电子科技大学, 电子科大, UESTC]
+  neu:
+    canonical_name: 东北大学
+    english_name: Northeastern University
+    aliases: [东大, NEU]
+    title_patterns: [东北大学, 东大, NEU]
+  tmu:
+    canonical_name: 天津医科大学
+    english_name: Tianjin Medical University
+    aliases: [天医, TMU]
+    title_patterns: [天津医科大学, 天医, TMU]
+  jnu:
+    canonical_name: 暨南大学
+    english_name: Jinan University
+    aliases: [暨大, JNU]
+    title_patterns: [暨南大学, 暨大, JNU]
+  xidian:
+    canonical_name: 西安电子科技大学
+    english_name: Xidian University
+    aliases: [西电, XDU, Xidian]
+    title_patterns: [西安电子科技大学, 西电, Xidian]
+  nuaa:
+    canonical_name: 南京航空航天大学
+    english_name: Nanjing University of Aeronautics and Astronautics
+    aliases: [南航, NUAA]
+    title_patterns: [南京航空航天大学, 南航, NUAA]
+  swjtu:
+    canonical_name: 西南交通大学
+    english_name: Southwest Jiaotong University
+    aliases: [西南交大, SWJTU]
+    title_patterns: [西南交通大学, 西南交大, SWJTU]
+  dhu:
+    canonical_name: 东华大学
+    english_name: Donghua University
+    aliases: [东华, DHU]
+    title_patterns: [东华大学, 东华, DHU]
+  bucm:
+    canonical_name: 北京化工大学
+    english_name: Beijing University of Chemical Technology
+    aliases: [北化, BUCT, BUCM]
+    title_patterns: [北京化工大学, 北化, BUCM]
+  hainu:
+    canonical_name: 海南大学
+    english_name: Hainan University
+    aliases: [海大, HNU海南]
+    title_patterns: [海南大学, 海大]
+  shu:
+    canonical_name: 上海大学
+    english_name: Shanghai University
+    aliases: [上大, SHU]
+    title_patterns: [上海大学, 上大, SHU]
+  cpu:
+    canonical_name: 中国药科大学
+    english_name: China Pharmaceutical University
+    aliases: [药大, CPU]
+    title_patterns: [中国药科大学, 药大, CPU]
+  bjut:
+    canonical_name: 北京工业大学
+    english_name: Beijing University of Technology
+    aliases: [北工大, BJUT]
+    title_patterns: [北京工业大学, 北工大, BJUT]
+  suda:
+    canonical_name: 苏州大学
+    english_name: Soochow University
+    aliases: [苏大, SUDA]
+    title_patterns: [苏州大学, 苏大, SUDA]
+  njust:
+    canonical_name: 南京理工大学
+    english_name: Nanjing University of Science and Technology
+    aliases: [南理工, NJUST]
+    title_patterns: [南京理工大学, 南理工, NJUST]
+  szu:
+    canonical_name: 深圳大学
+    english_name: Shenzhen University
+    aliases: [深大, SZU]
+    title_patterns: [深圳大学, 深大, SZU]
+  sibet:
+    canonical_name: 中国科学院苏州医工所
+    english_name: Suzhou Institute of Biomedical Engineering and Technology, CAS
+    aliases: [苏州医工所, SIBET]
+    title_patterns: [中国科学院苏州医工所, 苏州医工所, SIBET]
+  siat_bme:
+    canonical_name: 中国科学院深圳先进技术研究院医工所
+    english_name: Biomedical Engineering Research Center, SIAT, CAS
+    aliases: [深圳先进院医工所, 深圳先进技术研究院医工所, SIAT医工所]
+    title_patterns: [中国科学院深圳先进技术研究院医工所, 深圳先进院医工所, SIAT医工所]
+  gibh:
+    canonical_name: 中国科学院广州健康院
+    english_name: Guangzhou Institute of Biomedicine and Health, CAS
+    aliases: [广州健康院, GIBH]
+    title_patterns: [中国科学院广州健康院, 广州健康院, GIBH]

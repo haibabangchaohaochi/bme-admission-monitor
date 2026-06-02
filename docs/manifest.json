@@ -1,0 +1,10 @@
+{
+  "name": "保研监控看板",
+  "short_name": "保研监控",
+  "start_url": "index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f7fb",
+  "theme_color": "#0b1f3a",
+  "icons": []
+}
